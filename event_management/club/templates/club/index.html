@@ -1,0 +1,24 @@
+{% if club_list %}
+ 
+    {% for each_club in club_list %}
+ 
+    <ul>
+ 
+    <li>
+        <h3> Club Name:{{ each_club.club_name }}</h3>
+        <h4>Price:${{ each_club.email }}</h4> 
+ 
+    </li>
+    </ul>
+ 
+{% endfor %}
+ 
+    {% else %}
+    <h1>No entries found on the database.</h1>
+ 
+ 
+{% endif %}
+     <form action="{% url 'club:club-entry'  %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default btn-sm">Make a Club entry here</button>
+        </form>
